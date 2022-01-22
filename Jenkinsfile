@@ -25,7 +25,7 @@ pipeline{
     
                             sh '''
                                docker build -t 34.125.46.97:8083/benspringapp:${VERSION} .
-                               docker docker login -u admin -p $docker_password 34.125.46.97:8083 
+                               docker login -u admin -p $docker_password 34.125.46.97:8083 
                                docker push 34.125.46.97:8083/benspringapp:${VERSION}
                                docker rmi 34.125.46.97:8083/benspringapp:${VERSION}
                             '''
