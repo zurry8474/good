@@ -20,7 +20,7 @@ dependencies {
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
- dependencies { 
+dependencies {
       classpath 'org.sonarqube.gradle:gradle-sonarqube-plugin:1.0'
 }
 test {
