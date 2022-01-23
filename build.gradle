@@ -19,7 +19,6 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	classpath 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.3'
 }
 
 test {
