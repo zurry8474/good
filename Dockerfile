@@ -6,5 +6,5 @@ RUN ./gradlew build
 
 FROM tomcat:9
 WORKDIR webapp
-COPY --from=base /app/build/libsampleWeb-0.0.1-SNAPSHOT.war .
+COPY --from=base /app/build/libs/sampleWeb-0.0.1-SNAPSHOT.war .
 RUN rm -rf ROOT && mv sampleWeb-0.0.1-SNAPSHOT.war ROOT.war 
