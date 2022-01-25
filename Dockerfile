@@ -1,7 +1,7 @@
 FROM openjdk:11 as base
 WORKDIR /app
 COPY . .
-RUN gradle
+RUN gradlew
 RUN ./gradlew build
 
 FROM tomcat:9
