@@ -30,7 +30,7 @@ pipeline {
         stage("docker build & docker push"){
             steps{
                 script{
-                    withCredentials([string(credentialsId: 'docker_pass', variable: 'docker_password')]) {
+                    withCredentials([string(credentialsId: 'docker_pass', variable: 'docker_password')]){
                             sh '''
                                 docker build -t 35.245.145.215:8083/webapp:${VERSION} .
                                 docker login -u admin -p $docker_password 35.245.145.215:8083
@@ -43,11 +43,14 @@ pipeline {
                 }
             }
         }
-        stage('identifying misconfigs using datree in helm charts') {
+        stage('identifying misconfigs using datree in helm charts'){
             steps{
                 script{
                     dir('kubernetes/') {
-                        sh 'helm datree test myapp/'
+                        withEnv(['DATREE_TOKEN=PDQGVzku3EgoQDXPi36FCW']){
+                            sh 'helm datree test myapp/'
+                        }
+                        
                     }
                 }
             }
