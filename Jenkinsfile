@@ -33,7 +33,7 @@ pipeline {
                     withCredentials([string(credentialsId: 'admin', variable: 'sonar_password')]){
                             sh '''
                                 docker build -t 34.125.5.182:8083/webapp:${VERSION} .
-                                docker login -u admin -p $nexus_password 34.125.5.182:8083
+                                docker login -u admin -p $sonar_password 34.125.5.182:8083
                                 docker push  34.125.5.182:8083/webapp:${VERSION}
                                 docker rmi 34.125.5.182:8083/webapp:${VERSION}
                             '''
