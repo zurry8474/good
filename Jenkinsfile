@@ -30,7 +30,7 @@ pipeline {
         stage("docker build & docker push"){
             steps{
                 script{
-                    withCredentials([string(credentialsId: 'nexus_pass', variable: 'nexus_password')]){
+                    withCredentials([string(credentialsId: 'admin', variable: 'sonar_password')]){
                             sh '''
                                 docker build -t 34.125.5.182:8083/webapp:${VERSION} .
                                 docker login -u admin -p $nexus_password 34.125.5.182:8083
